@@ -1,6 +1,7 @@
 const express = require("express");
 // const db = require("./models");
 const app = express();
+require("dotenv").config();
 const cors = require("cors");
 app.use(cors());
 const bodyParser = require("body-parser");
@@ -9,11 +10,11 @@ app.use(bodyParser());
 const { Sequelize } = require("sequelize");
 
 const sequelize = new Sequelize(
-  "ktwpcusl",
-  "ktwpcusl",
-  "AQvgKlTr53LVoYf96TBy85XqI58OFXMI",
+  `${process.env.DB}`,
+  `${process.env.DB}`,
+  `${process.env.KEY}`,
   {
-    host: "ruby.db.elephantsql.com",
+    host: `${process.env.HOST}`,
     dialect: "postgres",
   }
 );
