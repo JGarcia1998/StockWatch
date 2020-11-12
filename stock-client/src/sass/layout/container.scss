@@ -30,6 +30,8 @@
   &__icon {
     display: flex;
     align-items: center;
+    cursor: pointer;
+    width: 100%;
   }
 
   &__label {
@@ -40,6 +42,11 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     color: #777;
+    transition: 0.2s;
+  }
+
+  &__label:hover {
+    color: rgb(49, 115, 212);
   }
 
   &__container {
@@ -60,6 +67,10 @@
   }
 }
 
+.active {
+  color: rgb(0, 86, 214);
+}
+
 .header {
   margin: 3rem;
 
@@ -72,6 +83,7 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     margin-left: 1rem;
+    margin-bottom: 5rem;
 
     &-title {
       font-size: 1.4rem;
@@ -336,6 +348,7 @@
     color: black;
     letter-spacing: 1px;
     font-weight: 300;
+    margin-bottom: 2rem;
   }
 
   &__title {
@@ -483,4 +496,44 @@
   font-size: 4rem;
   font-weight: 300;
   transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.news {
+  width: 100%;
+  display: flex;
+
+  margin: 1rem auto;
+  background-image: linear-gradient(
+    to right bottom,
+    rgb(82, 82, 82),
+    rgb(32, 32, 32)
+  );
+  border-radius: 4px;
+
+  &__img {
+    height: 100%;
+    width: 30%;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+  &__title {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+
+  &__info {
+    font-size: 1.2rem;
+    color: rgb(219, 219, 219);
+    font-weight: 300;
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 2rem;
+  }
 }

@@ -43,7 +43,9 @@ body {
     margin-bottom: 0.5rem; }
   .navbar__icon {
     display: flex;
-    align-items: center; }
+    align-items: center;
+    cursor: pointer;
+    width: 100%; }
   .navbar__label {
     margin-left: 1.8rem;
     text-decoration: none;
@@ -51,7 +53,10 @@ body {
     font-weight: 400;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: #777; }
+    color: #777;
+    transition: 0.2s; }
+  .navbar__label:hover {
+    color: #3173d4; }
   .navbar__container {
     text-align: center; }
     .navbar__container-heading {
@@ -64,6 +69,9 @@ body {
       font-size: 1.2rem;
       width: 100%; }
 
+.active {
+  color: #0056d6; }
+
 .header {
   margin: 3rem;
   display: flex;
@@ -73,7 +81,8 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    margin-left: 1rem; }
+    margin-left: 1rem;
+    margin-bottom: 5rem; }
     .header__stock-news-grid-title {
       font-size: 1.4rem;
       color: black;
@@ -353,7 +362,8 @@ body {
     font-size: 2.3rem;
     color: black;
     letter-spacing: 1px;
-    font-weight: 300; }
+    font-weight: 300;
+    margin-bottom: 2rem; }
   .header__title {
     font-size: 3rem;
     font-weight: 500;
@@ -465,3 +475,29 @@ body {
   font-size: 4rem;
   font-weight: 300;
   transform: translate(-50%, -50%) rotate(-45deg); }
+
+.news {
+  width: 100%;
+  display: flex;
+  margin: 1rem auto;
+  background-image: linear-gradient(to right bottom, #525252, #202020);
+  border-radius: 4px; }
+  .news__img {
+    height: 100%;
+    width: 30%;
+    object-fit: cover;
+    border-radius: 4px; }
+  .news__title {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 400; }
+  .news__info {
+    font-size: 1.2rem;
+    color: #dbdbdb;
+    font-weight: 300; }
+  .news__col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 2rem; }

@@ -5,14 +5,37 @@ import AddShoppingCartRoundedIcon from "@material-ui/icons/AddShoppingCartRounde
 import ShowChartRoundedIcon from "@material-ui/icons/ShowChartRounded";
 import GraphicEqRoundedIcon from "@material-ui/icons/GraphicEqRounded";
 import ExitToAppRoundedIcon from "@material-ui/icons/ExitToAppRounded";
+import { useEffect, useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 
 function Container() {
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      "& > *": {
+        margin: theme.spacing(1),
+      },
+    },
+  }));
+  const classes = useStyles();
+  const [news, setNews] = useState([]);
+
+  useEffect(() => {
+    fetch(
+      `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.REACT_APP_KEY}`
+    )
+      .then((response) => response.json())
+      .then((result) => {
+        setNews(result.articles);
+      });
+  }, [setNews]);
+
   return (
     <>
       <div className="main-body">
         <div className="navbar">
           <div className="navbar__container">
-            <div class="navbar__img"></div>
+            <div className="navbar__img"></div>
             <h1 className="navbar__container-heading">StockWatch</h1>
             <p className="navbar__container-item">
               Up to date stock and crypto currencies daily
@@ -21,7 +44,7 @@ function Container() {
 
           <div className="navbar__icon">
             <HomeOutlinedIcon style={{ fontSize: 30 }}></HomeOutlinedIcon>
-            <a href="#" className="navbar__label">
+            <a href="#" className="navbar__label active">
               Dashboard
             </a>
           </div>
@@ -70,6 +93,7 @@ function Container() {
           </p>
 
           <div className="header__stock-hold">
+            {/* <DragDropContainer targetKey="foo"> */}
             <div className="header__stock">
               <a href="#" className="header__stock-news">
                 <div className="header__stock-news-word">News</div>
@@ -97,6 +121,8 @@ function Container() {
               <p className="header__stock-title">Apple</p>
               <p className="header__stock-price">15%</p>
             </div>
+            {/* </DragDropContainer> */}
+
             <div className="header__stock">
               <a href="#" className="header__stock-news">
                 <div className="header__stock-news-word">News</div>
@@ -206,6 +232,36 @@ function Container() {
               </a>
             </div>
           </div>
+
+          <h2 className="header__news-title">News articles around the globe</h2>
+
+          {news.splice(0, 6).map((article) => {
+            return (
+              <div className="news">
+                <img
+                  src={article.urlToImage}
+                  className="news__img"
+                  alt="News Image"
+                />
+                <div className="news__col">
+                  <h2 className="news__title">{article.title}</h2>
+                  <p className="news__info">{article.content}</p>
+                  <Button
+                    style={{
+                      width: "30%",
+                      margin: "1rem 0",
+                      alignSelf: "flex-start",
+                    }}
+                    variant="contained"
+                    color="primary"
+                    href="#"
+                  >
+                    Article
+                  </Button>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         <div className="main-right">
@@ -221,7 +277,7 @@ function Container() {
             >
               <path
                 fill="rgb(65, 98, 189)"
-                fill-opacity="1"
+                fillOpacity="1"
                 d="M0,128L26.7,149.3C53.3,171,107,213,160,245.3C213.3,277,267,299,320,272C373.3,245,427,171,480,154.7C533.3,139,587,181,640,170.7C693.3,160,747,96,800,80C853.3,64,907,96,960,101.3C1013.3,107,1067,85,1120,101.3C1173.3,117,1227,171,1280,202.7C1333.3,235,1387,245,1413,250.7L1440,256L1440,320L1413.3,320C1386.7,320,1333,320,1280,320C1226.7,320,1173,320,1120,320C1066.7,320,1013,320,960,320C906.7,320,853,320,800,320C746.7,320,693,320,640,320C586.7,320,533,320,480,320C426.7,320,373,320,320,320C266.7,320,213,320,160,320C106.7,320,53,320,27,320L0,320Z"
               ></path>
             </svg>
