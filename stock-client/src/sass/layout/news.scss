@@ -1,0 +1,39 @@
+.news {
+  width: 100%;
+  display: flex;
+
+  margin: 1rem auto;
+  background-image: linear-gradient(
+    to right bottom,
+    rgb(82, 82, 82),
+    rgb(32, 32, 32)
+  );
+  border-radius: 4px;
+
+  &__img {
+    height: 100%;
+    width: 30%;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+  &__title {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+
+  &__info {
+    font-size: 1.2rem;
+    color: rgb(219, 219, 219);
+    font-weight: 300;
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 2rem;
+  }
+}

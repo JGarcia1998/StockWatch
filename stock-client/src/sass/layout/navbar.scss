@@ -1,0 +1,60 @@
+.navbar {
+  padding: 3rem;
+
+  background-color: rgb(225, 233, 247);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  &__img {
+    background-image: url("./img/stock.svg");
+    width: 2.5rem;
+    height: 2.5rem;
+    background-size: cover;
+    margin: 0 auto;
+    margin-bottom: 0.5rem;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  &__label {
+    margin-left: 1.8rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #777;
+    transition: 0.2s;
+  }
+
+  &__label:hover {
+    color: rgb(49, 115, 212);
+  }
+
+  &__container {
+    text-align: center;
+
+    &-heading {
+      font-size: 2.5rem;
+      color: black;
+      letter-spacing: 2px;
+      font-weight: 400;
+    }
+
+    &-item {
+      color: grey;
+      font-size: 1.2rem;
+      width: 100%;
+    }
+  }
+}
+
+.c {
+  color: rgb(0, 68, 255);
+}

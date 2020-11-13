@@ -17,16 +17,239 @@ body {
   background-color: #000000;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='30' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23222' stroke-width='10' %3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E"); }
 
-.main-body {
-  background-color: #fbfbff;
-  width: 90vw;
-  height: 90vh;
+.header__icon {
+  background-image: linear-gradient(to bottom, #67fada, #00d1a4);
+  border-radius: 8px;
+  transform: rotate(45deg);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem; }
+
+.header__icon-2-symbol {
+  transform: rotate(-45deg); }
+
+.header__icon-1-symbol {
+  transform: rotate(-45deg); }
+
+.header__icon-3-symbol {
+  transform: rotate(-45deg); }
+
+.header__icon-4-symbol {
+  transform: rotate(-45deg); }
+
+.header__icon-2 {
+  background-image: linear-gradient(to bottom, #fca38d, #fd4c1f);
+  border-radius: 8px;
+  transform: rotate(45deg);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem; }
+
+.header__icon-3 {
+  background-image: linear-gradient(to bottom, #757eff, #1927e7);
+  border-radius: 8px;
+  transform: rotate(45deg);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem; }
+
+.header__icon-4 {
+  background-image: linear-gradient(to bottom, #8dfc9c, #04d171);
+  border-radius: 8px;
+  transform: rotate(45deg);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem; }
+
+.header__stock-news-grid-logo-twtr {
+  display: block;
+  margin-right: 1rem;
+  border-radius: 8px;
+  transform: rotate(45deg);
+  border: none;
+  width: 3rem;
+  height: 3rem;
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  background-color: #0044ff; }
+
+.header__stock-news-grid-logo-twtr::after {
+  content: "T";
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr; }
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 300;
+  transform: translate(-50%, -50%) rotate(-45deg); }
+
+.header__stock-news-grid-logo-ford {
+  display: block;
+  margin-right: 1rem;
+  border-radius: 8px;
+  transform: rotate(45deg);
+  border: none;
+  width: 3rem;
+  height: 3rem;
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  background-color: #ff3300; }
+
+.header__stock-news-grid-logo-ford::after {
+  content: "F";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 300;
+  transform: translate(-50%, -50%) rotate(-45deg); }
+
+.header__stock-news-grid-logo-tsla {
+  display: block;
+  margin-right: 1rem;
+  border-radius: 8px;
+  transform: rotate(45deg);
+  border: none;
+  width: 3rem;
+  height: 3rem;
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  background-color: #00ff88; }
+
+.header__stock-news-grid-logo-tsla::after {
+  content: "T";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 300;
+  transform: translate(-50%, -50%) rotate(-45deg); }
+
+.header__stock-news-grid-logo-amzn {
+  display: block;
+  margin-right: 1rem;
+  border-radius: 8px;
+  transform: rotate(45deg);
+  border: none;
+  width: 3rem;
+  height: 3rem;
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  background-color: #00d9ff; }
+
+.header__stock-news-grid-logo-amzn::after {
+  content: "A";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 300;
+  transform: translate(-50%, -50%) rotate(-45deg); }
+
+.header__stock-news-grid-logo-snap {
+  display: block;
+  margin-right: 1rem;
+  border-radius: 8px;
+  transform: rotate(45deg);
+  border: none;
+  width: 3rem;
+  height: 3rem;
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  background-color: #f5f100; }
+
+.header__stock-news-grid-logo-snap::after {
+  content: "S";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 300;
+  transform: translate(-50%, -50%) rotate(-45deg); }
+
+.header__stock-news-grid-logo-btc {
+  display: block;
+  margin-right: 1rem;
+  border-radius: 8px;
+  transform: rotate(45deg);
+  border: none;
+  width: 3rem;
+  height: 3rem;
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  background-color: #201f20; }
+
+.header__stock-news-grid-logo-btc::after {
+  content: "B";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 300;
+  transform: translate(-50%, -50%) rotate(-45deg); }
 
 .navbar {
   padding: 3rem;
@@ -69,6 +292,20 @@ body {
       font-size: 1.2rem;
       width: 100%; }
 
+.c {
+  color: #0044ff; }
+
+.main-body {
+  background-color: #fbfbff;
+  width: 90vw;
+  height: 90vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; }
+
 .active {
   color: #0056d6; }
 
@@ -108,144 +345,6 @@ body {
     .header__stock-news-grid-col {
       display: flex;
       flex-direction: column; }
-    .header__stock-news-grid-logo-twtr {
-      display: block;
-      margin-right: 1rem;
-      border-radius: 8px;
-      transform: rotate(45deg);
-      border: none;
-      width: 3rem;
-      height: 3rem;
-      color: #fff;
-      font-size: 2rem;
-      text-align: center;
-      cursor: pointer;
-      position: relative;
-      background-color: #0044ff; }
-    .header__stock-news-grid-logo-twtr::after {
-      content: "T";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      color: #fff;
-      font-size: 2rem;
-      font-weight: 300;
-      transform: translate(-50%, -50%) rotate(-45deg); }
-    .header__stock-news-grid-logo-ford {
-      display: block;
-      margin-right: 1rem;
-      border-radius: 8px;
-      transform: rotate(45deg);
-      border: none;
-      width: 3rem;
-      height: 3rem;
-      color: #fff;
-      font-size: 2rem;
-      text-align: center;
-      cursor: pointer;
-      position: relative;
-      background-color: #ff3300; }
-    .header__stock-news-grid-logo-ford::after {
-      content: "F";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      color: #fff;
-      font-size: 2rem;
-      font-weight: 300;
-      transform: translate(-50%, -50%) rotate(-45deg); }
-    .header__stock-news-grid-logo-tsla {
-      display: block;
-      margin-right: 1rem;
-      border-radius: 8px;
-      transform: rotate(45deg);
-      border: none;
-      width: 3rem;
-      height: 3rem;
-      color: #fff;
-      font-size: 2rem;
-      text-align: center;
-      cursor: pointer;
-      position: relative;
-      background-color: #00ff88; }
-    .header__stock-news-grid-logo-tsla::after {
-      content: "T";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      color: #fff;
-      font-size: 2rem;
-      font-weight: 300;
-      transform: translate(-50%, -50%) rotate(-45deg); }
-    .header__stock-news-grid-logo-amzn {
-      display: block;
-      margin-right: 1rem;
-      border-radius: 8px;
-      transform: rotate(45deg);
-      border: none;
-      width: 3rem;
-      height: 3rem;
-      color: #fff;
-      font-size: 2rem;
-      text-align: center;
-      cursor: pointer;
-      position: relative;
-      background-color: #00d9ff; }
-    .header__stock-news-grid-logo-amzn::after {
-      content: "A";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      color: #fff;
-      font-size: 2rem;
-      font-weight: 300;
-      transform: translate(-50%, -50%) rotate(-45deg); }
-    .header__stock-news-grid-logo-snap {
-      display: block;
-      margin-right: 1rem;
-      border-radius: 8px;
-      transform: rotate(45deg);
-      border: none;
-      width: 3rem;
-      height: 3rem;
-      color: #fff;
-      font-size: 2rem;
-      text-align: center;
-      cursor: pointer;
-      position: relative;
-      background-color: #f5f100; }
-    .header__stock-news-grid-logo-snap::after {
-      content: "S";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      color: #fff;
-      font-size: 2rem;
-      font-weight: 300;
-      transform: translate(-50%, -50%) rotate(-45deg); }
-    .header__stock-news-grid-logo-btc {
-      display: block;
-      margin-right: 1rem;
-      border-radius: 8px;
-      transform: rotate(45deg);
-      border: none;
-      width: 3rem;
-      height: 3rem;
-      color: #fff;
-      font-size: 2rem;
-      text-align: center;
-      cursor: pointer;
-      position: relative;
-      background-color: #201f20; }
-    .header__stock-news-grid-logo-btc::after {
-      content: "B";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      color: #fff;
-      font-size: 2rem;
-      font-weight: 300;
-      transform: translate(-50%, -50%) rotate(-45deg); }
   .header__flex-col {
     display: flex;
     flex-direction: column; }
@@ -297,73 +396,39 @@ body {
     right: 1rem;
     font-size: 1.2rem;
     color: #1ed88b; }
-  .header__icon {
-    position: absolute;
-    left: 1rem;
-    bottom: 1rem;
-    background-image: linear-gradient(to bottom, #9ab4fa, #5682fa);
-    border-radius: 8px;
-    transform: rotate(45deg);
-    border: none;
-    width: 3rem;
-    height: 3rem;
-    color: #fff;
-    font-size: 2rem;
-    text-align: center;
-    cursor: pointer; }
-  .header__icon::after {
-    content: "A";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    color: #fff;
-    font-size: 2rem;
-    font-weight: 300;
-    transform: translate(-50%, -50%) rotate(-45deg); }
-  .header__icon-2 {
-    position: absolute;
-    left: 1rem;
-    bottom: 1rem;
-    background-image: linear-gradient(to bottom, #fca38d, #fd4c1f);
-    border-radius: 8px;
-    transform: rotate(45deg);
-    border: none;
-    width: 3rem;
-    height: 3rem;
-    color: #fff;
-    font-size: 2rem;
-    text-align: center;
-    cursor: pointer; }
-  .header__icon-2::after {
-    content: "N";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    color: #fff;
-    font-size: 2rem;
-    font-weight: 300;
-    transform: translate(-50%, -50%) rotate(-45deg); }
   .header__stock-hold {
+    display: flex;
+    flex-direction: column; }
+  .header__stock-row {
     display: flex; }
   .header__stock {
     width: 25rem;
     height: 15rem;
     background-color: #fff;
     border-radius: 5px;
-    margin-top: 2rem;
+    margin-bottom: 1.8rem;
     box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.1);
     margin-left: 1rem;
     margin-right: 1rem;
     position: relative;
     padding: 1rem;
-    margin-bottom: 5rem;
     cursor: pointer; }
+  .header__stock-hover {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    clip-path: polygon(29% 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0 34%); }
   .header__news-title {
     font-size: 2.3rem;
     color: black;
     letter-spacing: 1px;
     font-weight: 300;
-    margin-bottom: 2rem; }
+    margin-bottom: 1rem;
+    margin-top: 1rem; }
   .header__title {
     font-size: 3rem;
     font-weight: 500;
@@ -371,7 +436,36 @@ body {
     color: black; }
   .header__p {
     color: #777;
-    font-size: 1.3rem; }
+    font-size: 1.3rem;
+    margin-bottom: 2rem; }
+
+.btn-fixed {
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+  background-color: #3173d4;
+  border-radius: 15px;
+  transform: rotate(45deg);
+  border: none;
+  width: 6rem;
+  height: 6rem;
+  z-index: 100;
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  outline: none; }
+
+.btn-fixed::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  font-size: 4rem;
+  font-weight: 300;
+  transform: translate(-50%, -50%) rotate(-45deg); }
 
 .main-right {
   background-color: #f2f4f8;
@@ -404,7 +498,7 @@ body {
     width: 3rem;
     height: 3rem;
     padding: 3rem;
-    background-image: linear-gradient(to bottom, #a4fca4, #16f33b);
+    background-image: linear-gradient(to bottom, #88ff88, #16f36b);
     color: #fff;
     position: absolute;
     top: 0;
@@ -444,37 +538,6 @@ body {
     z-index: 10; }
   .main-right__times {
     cursor: pointer; }
-
-.btn-fixed {
-  position: absolute;
-  bottom: 3rem;
-  right: 3rem;
-  background-color: #3173d4;
-  border-radius: 15px;
-  transform: rotate(45deg);
-  border: none;
-  width: 6rem;
-  height: 6rem;
-  z-index: 100;
-  color: #fff;
-  font-size: 2rem;
-  text-align: center;
-  box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  outline: none; }
-
-.c {
-  color: #0044ff; }
-
-.btn-fixed::after {
-  content: "+";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  color: #fff;
-  font-size: 4rem;
-  font-weight: 300;
-  transform: translate(-50%, -50%) rotate(-45deg); }
 
 .news {
   width: 100%;
