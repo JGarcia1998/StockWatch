@@ -2,7 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { createStore } from "redux";
 import reducer from "./store/Reducer.js";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Provider } from "react-redux";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Container from "./components/Container";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
@@ -13,9 +17,17 @@ const store = createStore(
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <BrowserRouter>
+      <Provider store={store}>
+        <App>
+          <Switch>
+            <Route component={Container} path="/" exact></Route>
+            <Route component={Login} path="/login" exact></Route>
+            <Route component={Register} path="/register" exact></Route>
+          </Switch>
+        </App>
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );

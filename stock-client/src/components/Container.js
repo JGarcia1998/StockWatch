@@ -20,7 +20,7 @@ function Container(props) {
 
   //   useEffect(() => {
   //     fetch(
-  //       `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.REACT_APP_KEY}`
+  //       `https://newsapi.org/v2/top-headlines?country=us?category=business?&apiKey=${process.env.REACT_APP_KEY}`
   //     )
   //       .then((response) => response.json())
   //       .then((result) => {

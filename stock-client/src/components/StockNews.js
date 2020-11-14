@@ -12,6 +12,7 @@ export default function StockNews() {
       setShowPopup(true);
     }
     let search = e.target.parentNode.dataset.name;
+    console.log(e.target.parentNode);
 
     if (search != undefined) {
       fetch(
@@ -20,15 +21,21 @@ export default function StockNews() {
       )
         .then((res) => res.json())
         .then((results) => {
+          console.log(results);
           setStockUpdate(results.articles);
         });
     }
+  };
+  const closePopUp = () => {
+    setShowPopup(false);
   };
 
   return (
     <>
       <div className={showPopup === true ? "news-popup" : "news-popup-false"}>
-        <button className="news-close">X</button>
+        <button onClick={closePopUp} className="news-close">
+          X
+        </button>
 
         {stockUpdate.splice(0, 4).map((article) => {
           return (
@@ -58,8 +65,8 @@ export default function StockNews() {
           );
         })}
       </div>
-      <div data-name="twitter" className="header__stock-news-grid">
-        <div className="header__stock-news-grid-container">
+      <div className="header__stock-news-grid">
+        <div data-name="twitter" className="header__stock-news-grid-container">
           <span className="header__stock-news-grid-logo-twtr"></span>
 
           <div className="header__stock-news-grid-col">
@@ -129,7 +136,7 @@ export default function StockNews() {
           <div className="header__stock-news-grid-col">
             <p className="header__stock-news-grid-title">AMZN</p>
             <p className="header__stock-news-grid-name">
-              Social Network Company
+              Multinational tech company
             </p>
           </div>
           <button
@@ -146,7 +153,7 @@ export default function StockNews() {
           <div className="header__stock-news-grid-col">
             <p className="header__stock-news-grid-title">SNAP</p>
             <p className="header__stock-news-grid-name">
-              Social Network Company
+              Multi media messaging app
             </p>
           </div>
           <button

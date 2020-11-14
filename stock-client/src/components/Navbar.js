@@ -1,5 +1,6 @@
 import React from "react";
 import { Icon } from "@material-ui/core";
+import { NavLink, Redirect } from "react-router-dom";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import AddShoppingCartRoundedIcon from "@material-ui/icons/AddShoppingCartRounded";
 import ShowChartRoundedIcon from "@material-ui/icons/ShowChartRounded";
@@ -17,42 +18,45 @@ function Navbar() {
         </p>
       </div>
 
-      <div className="navbar__icon">
-        <HomeOutlinedIcon style={{ fontSize: 30 }}></HomeOutlinedIcon>
-        <a href="#" className="navbar__label active">
-          Dashboard
-        </a>
-      </div>
+      <NavLink to="/" className="navbar__icon">
+        <div className="navbar__effect"></div>
+        <HomeOutlinedIcon
+          style={{ fontSize: 30, zIndex: 250, color: "black" }}
+        ></HomeOutlinedIcon>
+        <div className="navbar__label active">Dashboard</div>
+      </NavLink>
 
-      <div className="navbar__icon">
+      <NavLink to="/watchlist" className="navbar__icon">
+        <div className="navbar__effect"></div>
         <AddShoppingCartRoundedIcon
-          style={{ fontSize: 30 }}
+          style={{ fontSize: 30, zIndex: 250, color: "black" }}
         ></AddShoppingCartRoundedIcon>
-        <a href="#" className="navbar__label">
-          Watchlist
-        </a>
-      </div>
+        <div className="navbar__label">Watchlist</div>
+      </NavLink>
 
-      <div className="navbar__icon">
-        <ShowChartRoundedIcon style={{ fontSize: 30 }}></ShowChartRoundedIcon>
-        <a href="#" className="navbar__label">
-          Stocks
-        </a>
-      </div>
+      <NavLink to="/" className="navbar__icon">
+        <div className="navbar__effect"></div>
+        <ShowChartRoundedIcon
+          style={{ fontSize: 30, zIndex: 250, color: "black" }}
+        ></ShowChartRoundedIcon>
+        <div className="navbar__label">Stocks</div>
+      </NavLink>
 
-      <div className="navbar__icon">
-        <GraphicEqRoundedIcon style={{ fontSize: 30 }}></GraphicEqRoundedIcon>
-        <a href="#" className="navbar__label">
-          Crypto
-        </a>
-      </div>
+      <NavLink to="/crypto" className="navbar__icon">
+        <div className="navbar__effect"></div>
+        <GraphicEqRoundedIcon
+          style={{ fontSize: 30, zIndex: 250, color: "black" }}
+        ></GraphicEqRoundedIcon>
+        <div className="navbar__label">Crypto</div>
+      </NavLink>
 
-      <div className="navbar__icon">
-        <ExitToAppRoundedIcon style={{ fontSize: 30 }}></ExitToAppRoundedIcon>
-        <a href="#" className="navbar__label">
-          Sign out
-        </a>
-      </div>
+      <NavLink to="/logout" className="navbar__icon">
+        <div className="navbar__effect"></div>
+        <ExitToAppRoundedIcon
+          style={{ fontSize: 30, zIndex: 250, color: "black" }}
+        ></ExitToAppRoundedIcon>
+        <div className="navbar__label">Sign out</div>
+      </NavLink>
     </div>
   );
 }

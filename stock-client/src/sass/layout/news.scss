@@ -43,6 +43,7 @@
     z-index: 300;
     outline: none;
     overflow-y: scroll;
+    padding: 3rem;
   }
 
   &-close {
@@ -55,6 +56,7 @@
     border: none;
     font-weight: 400;
     cursor: pointer;
+    outline: transparent;
   }
 
   &-popup-false {
@@ -93,7 +95,7 @@
   width: 60%;
   display: flex;
 
-  margin: 2rem auto;
+  margin: 2.5rem auto;
   background-image: linear-gradient(
     to right bottom,
     rgb(82, 82, 82),
@@ -103,6 +105,7 @@
   border-radius: 4px;
   animation: slide-in 1.3s;
   animation-delay: 0.5;
+  box-shadow: 0 1rem 1rem rgba(black, 0.2);
 
   &__img {
     width: 40%;
