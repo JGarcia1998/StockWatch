@@ -24,6 +24,26 @@ function Login(props) {
       });
   };
 
+  const handleGuestLogin = () => {
+    fetch("http://localhost:1234/login", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({ username: "guest", password: "guest" }),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((result) => {
+        if (result.login === true) {
+          props.onSetAuthenticated();
+        } else {
+          alert("Login incorrect");
+        }
+      });
+  };
+
   const handleLogin = (e) => {
     setLogin({
       ...login,
@@ -82,7 +102,9 @@ function Login(props) {
           >
             or
           </p>
-          <button className="container__guest">Log in as guest</button>
+          <button onClick={handleGuestLogin} className="container__guest">
+            Log in as guest
+          </button>
         </div>
       </div>
       {props.authentication === true ? <Redirect to="/" /> : null}

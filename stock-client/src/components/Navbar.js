@@ -1,13 +1,18 @@
 import React from "react";
 import { Icon } from "@material-ui/core";
 import { NavLink, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import AddShoppingCartRoundedIcon from "@material-ui/icons/AddShoppingCartRounded";
 import ShowChartRoundedIcon from "@material-ui/icons/ShowChartRounded";
 import GraphicEqRoundedIcon from "@material-ui/icons/GraphicEqRounded";
 import ExitToAppRoundedIcon from "@material-ui/icons/ExitToAppRounded";
 
-function Navbar() {
+function Navbar(props) {
+  const logOut = () => {
+    props.onLogOut();
+  };
+
   return (
     <div className="navbar">
       <div className="navbar__container">
@@ -26,13 +31,15 @@ function Navbar() {
         <div className="navbar__label">Dashboard</div>
       </NavLink>
 
-      <NavLink to="/watchlist" className="navbar__icon">
-        <div className="navbar__effect"></div>
-        <AddShoppingCartRoundedIcon
-          style={{ fontSize: 30, zIndex: 250, color: "black" }}
-        ></AddShoppingCartRoundedIcon>
-        <div className="navbar__label">Watchlist</div>
-      </NavLink>
+      {props.currUser === true ? (
+        <NavLink to="/watchlist" className="navbar__icon">
+          <div className="navbar__effect"></div>
+          <AddShoppingCartRoundedIcon
+            style={{ fontSize: 30, zIndex: 250, color: "black" }}
+          ></AddShoppingCartRoundedIcon>
+          <div className="navbar__label">Watchlist</div>
+        </NavLink>
+      ) : null}
 
       <NavLink to="/" className="navbar__icon">
         <div className="navbar__effect"></div>
@@ -50,15 +57,42 @@ function Navbar() {
         <div className="navbar__label">Crypto</div>
       </NavLink>
 
-      <NavLink to="/logout" className="navbar__icon">
-        <div className="navbar__effect"></div>
-        <ExitToAppRoundedIcon
-          style={{ fontSize: 30, zIndex: 250, color: "black" }}
-        ></ExitToAppRoundedIcon>
-        <div className="navbar__label">Sign out</div>
-      </NavLink>
+      {props.currUser === true ? (
+        <NavLink onClick={logOut} to="/login" className="navbar__icon">
+          <div className="navbar__effect"></div>
+          <ExitToAppRoundedIcon
+            style={{ fontSize: 30, zIndex: 250, color: "black" }}
+          ></ExitToAppRoundedIcon>
+          <div className="navbar__label">Sign out</div>
+        </NavLink>
+      ) : (
+        <NavLink to="/login" className="navbar__icon">
+          <div className="navbar__effect"></div>
+          <ExitToAppRoundedIcon
+            style={{ fontSize: 30, zIndex: 250, color: "black" }}
+          ></ExitToAppRoundedIcon>
+          <div className="navbar__label">Login</div>
+        </NavLink>
+      )}
     </div>
   );
 }
 
-export default Navbar;
+const mapStateToProps = (state) => {
+  return {
+    currUser: state.authenticated,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onLogOut: () => {
+      dispatch({
+        type: "SETLOGOUT",
+        value: false,
+      });
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

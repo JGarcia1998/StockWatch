@@ -285,7 +285,7 @@ body {
     width: 1rem;
     height: 1rem;
     opacity: 0;
-    background-color: #3e80fa;
+    background-color: #2771fa;
     transition: 0.4s cubic-bezier(0.86, 0, 0.07, 1); }
   .navbar__icon:hover > .navbar__effect {
     opacity: 1;
@@ -753,3 +753,149 @@ body {
     color: black;
     font-weight: 400;
     font-size: 1.4rem; }
+
+.crypto__container {
+  width: 80%;
+  background-color: #272727;
+  margin: 0 auto;
+  border-radius: 4px;
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 3rem;
+  margin-top: 2rem;
+  color: #fff; }
+
+.crypto__stats {
+  font-size: 1.8rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: 1rem; }
+
+.crypto__symbol-1 {
+  border-radius: 8px;
+  transform: rotate(45deg);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  background-color: #1b60f5; }
+
+.crypto__symbol-2 {
+  border-radius: 8px;
+  transform: rotate(45deg);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  background-color: #f5471b; }
+
+.crypto__symbol-3 {
+  border-radius: 8px;
+  transform: rotate(45deg);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  background-color: #00e2b1; }
+
+.crypto__symbol-4 {
+  border-radius: 8px;
+  transform: rotate(45deg);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  background-color: #5c1bf5; }
+
+.crypto__symbol-ltr {
+  transform: rotate(-45deg); }
+
+.crypto__percentage {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  color: #0eda85;
+  font-size: 1.3rem; }
+
+.crypto__grid {
+  align-self: center;
+  width: 100%;
+  margin-bottom: 4rem;
+  font-size: 1.2rem; }
+
+.crypto__row {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 1rem; }
+
+.crypto__name {
+  position: absolute;
+  left: 5rem;
+  bottom: 1rem;
+  font-size: 1.5rem; }
+
+.crypto__center {
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  position: absolute; }
+
+.crypto__title {
+  font-style: italic;
+  font-size: 1.3rem; }
+
+.crypto__right-title {
+  font-size: 1.8rem;
+  color: grey;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase; }
+
+.crypto__right-text {
+  line-height: 1.5;
+  font-size: 1.3rem; }
+
+.special {
+  background-color: #acacac; }

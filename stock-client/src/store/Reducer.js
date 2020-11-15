@@ -23,6 +23,11 @@ const reducer = (state = initialState, action) => {
       ...state,
       authenticated: action.value,
     };
+  } else if (action.type == "SETLOGOUT") {
+    return {
+      ...state,
+      authenticated: action.value,
+    };
   }
   return state;
 };
