@@ -1,9 +1,9 @@
 const initialState = {
   selectedStock: {},
-
   authenticated: false,
-
   userId: null,
+  stocksSet: false,
+  stockInfo: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -31,6 +31,16 @@ const reducer = (state = initialState, action) => {
     return {
       ...state,
       selectedStock: action.value,
+    };
+  } else if (action.type == "STOCKSSET") {
+    return {
+      ...state,
+      stocksSet: action.value,
+    };
+  } else if (action.type == "SETSTOCKINFO") {
+    return {
+      ...state,
+      stockInfo: action.value,
     };
   }
   return state;

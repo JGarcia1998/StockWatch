@@ -6,26 +6,26 @@ function TopStocks(props) {
   const [showPopup, setShowPopup] = useState(false);
   const [stockUpdate, setStockUpdate] = useState([]);
   const [prevStock, setPrevStock] = useState(null);
-  const [stockInfo, setStockInfo] = useState([]);
 
   const symbols = ["AAPL", "NFLX", "GOOGL", "TSLA"];
   let temp = [];
 
   useEffect(() => {
-    if (!stockInfo.length) {
+    if (props.setStocks === false) {
       fetchSymbols();
     }
   }, []);
+
   // Run after fetchSymbols finishes:
   useEffect(() => {
-    if (stockInfo.length) {
+    if (props.stockInfo.length) {
       props.onInitialSet(
-        stockInfo[2].symbol,
-        stockInfo[2].percentage,
-        stockInfo[2].close
+        props.stockInfo[2].symbol,
+        props.stockInfo[2].percentage,
+        props.stockInfo[2].close
       );
     }
-  }, [stockInfo]);
+  }, [props.stockInfo]);
 
   const changeStock = (e) => {
     setPrevStock(props.selectedStock);
@@ -33,13 +33,14 @@ function TopStocks(props) {
   };
 
   async function fetchSymbols() {
+    props.onSetStocks();
+    localStorage.setItem("stocksSet", true);
     for (let i = 0; i < symbols.length; i++) {
       await fetch(
         `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbols[i]}&apikey=LTTSRB12RXT9ZBDH`
       )
         .then((res) => res.json())
         .then((allStocks) => {
-          console.log(allStocks);
           try {
             let metaDataEntries = allStocks["Meta Data"];
             let symbol = metaDataEntries["2. Symbol"].toUpperCase();
@@ -76,7 +77,7 @@ function TopStocks(props) {
         });
     }
 
-    setStockInfo(temp);
+    props.onStockInfo(temp);
   }
 
   const showPopupFunc = (e) => {
@@ -147,10 +148,14 @@ function TopStocks(props) {
             <div
               data-attr="A"
               data-percentage={
-                stockInfo[0]?.percentage ? stockInfo[0].percentage : "9.5"
+                props.stockInfo[0]?.percentage
+                  ? props.stockInfo[0].percentage
+                  : "9.5"
               }
               data-symbol="AAPL"
-              data-price={stockInfo[0]?.close ? stockInfo[0].close : "loading"}
+              data-price={
+                props.stockInfo[0]?.close ? props.stockInfo[0].close : "loading"
+              }
               onClick={changeStock}
               className="header__stock-hover"
             ></div>
@@ -166,22 +171,32 @@ function TopStocks(props) {
               <div className="header__flex-row">
                 <span className="header__grid-title">High:</span>
                 <span className="header__grid-price">
-                  ${stockInfo[0]?.high ? stockInfo[0].high : "loading"}
+                  $
+                  {props.stockInfo[0]?.high
+                    ? props.stockInfo[0].high
+                    : "loading"}
                 </span>
                 <span className="header__grid-title">Low:</span>
                 <span className="header__grid-price">
-                  ${stockInfo[0]?.low ? stockInfo[0].low : "loading"}
+                  $
+                  {props.stockInfo[0]?.low ? props.stockInfo[0].low : "loading"}
                 </span>
               </div>
 
               <div className="header__flex-row">
                 <span className="header__grid-title">Open:</span>
                 <span className="header__grid-price">
-                  ${stockInfo[0]?.open ? stockInfo[0].open : "loading"}
+                  $
+                  {props.stockInfo[0]?.open
+                    ? props.stockInfo[0].open
+                    : "loading"}
                 </span>
                 <span className="header__grid-title">Close:</span>
                 <span className="header__grid-price">
-                  ${stockInfo[0]?.close ? stockInfo[0].close : "loading"}
+                  $
+                  {props.stockInfo[0]?.close
+                    ? props.stockInfo[0].close
+                    : "loading"}
                 </span>
               </div>
             </div>
@@ -192,23 +207,31 @@ function TopStocks(props) {
             <p className="header__stock-title">AAPL</p>
             <p
               style={{
-                color: stockInfo[0]?.color ? stockInfo[0].color : "green",
+                color: props.stockInfo[0]?.color
+                  ? props.stockInfo[0].color
+                  : "green",
               }}
               className="header__stock-price"
             >
-              {stockInfo[0]?.percentage ? stockInfo[0].percentage : "loading"}%
+              {props.stockInfo[0]?.percentage
+                ? props.stockInfo[0].percentage
+                : "loading"}
+              %
             </p>
           </div>
-          {/* </DragDropContainer> */}
 
           <div data-name="netflix" className="header__stock">
             <div
               data-attr="N"
               data-percentage={
-                stockInfo[1]?.percentage ? stockInfo[1].percentage : "9.5"
+                props.stockInfo[1]?.percentage
+                  ? props.stockInfo[1].percentage
+                  : "9.5"
               }
               data-symbol="NFLX"
-              data-price={stockInfo[1]?.close ? stockInfo[1].close : "loading"}
+              data-price={
+                props.stockInfo[1]?.close ? props.stockInfo[1].close : "loading"
+              }
               onClick={changeStock}
               className="header__stock-hover"
             ></div>
@@ -222,22 +245,32 @@ function TopStocks(props) {
               <div className="header__flex-row">
                 <span className="header__grid-title">High:</span>
                 <span className="header__grid-price">
-                  ${stockInfo[1]?.high ? stockInfo[1].high : "loading"}
+                  $
+                  {props.stockInfo[1]?.high
+                    ? props.stockInfo[1].high
+                    : "loading"}
                 </span>
                 <span className="header__grid-title">Low:</span>
                 <span className="header__grid-price">
-                  ${stockInfo[1]?.low ? stockInfo[1].low : "loading"}
+                  $
+                  {props.stockInfo[1]?.low ? props.stockInfo[1].low : "loading"}
                 </span>
               </div>
 
               <div className="header__flex-row">
                 <span className="header__grid-title">Open:</span>
                 <span className="header__grid-price">
-                  ${stockInfo[1]?.open ? stockInfo[1].open : "loading"}
+                  $
+                  {props.stockInfo[1]?.open
+                    ? props.stockInfo[1].open
+                    : "loading"}
                 </span>
                 <span className="header__grid-title">Close:</span>
                 <span className="header__grid-price">
-                  ${stockInfo[1]?.close ? stockInfo[1].close : "loading"}
+                  $
+                  {props.stockInfo[1]?.close
+                    ? props.stockInfo[1].close
+                    : "loading"}
                 </span>
               </div>
             </div>
@@ -247,11 +280,16 @@ function TopStocks(props) {
             <p className="header__stock-title">NFLX</p>
             <p
               style={{
-                color: stockInfo[1]?.color ? stockInfo[1].color : "green",
+                color: props.stockInfo[1]?.color
+                  ? props.stockInfo[1].color
+                  : "green",
               }}
               className="header__stock-price"
             >
-              {stockInfo[1]?.percentage ? stockInfo[1].percentage : "loading"}%
+              {props.stockInfo[1]?.percentage
+                ? props.stockInfo[1].percentage
+                : "loading"}
+              %
             </p>
           </div>
         </div>
@@ -261,9 +299,13 @@ function TopStocks(props) {
             <div
               data-attr="G"
               data-symbol="GOOGL"
-              data-price={stockInfo[2]?.close ? stockInfo[2].close : "loading"}
+              data-price={
+                props.stockInfo[2]?.close ? props.stockInfo[2].close : "loading"
+              }
               data-percentage={
-                stockInfo[2]?.percentage ? stockInfo[2].percentage : "9.5"
+                props.stockInfo[2]?.percentage
+                  ? props.stockInfo[2].percentage
+                  : "9.5"
               }
               onClick={changeStock}
               className="header__stock-hover"
@@ -280,22 +322,32 @@ function TopStocks(props) {
               <div className="header__flex-row">
                 <span className="header__grid-title">High:</span>
                 <span className="header__grid-price">
-                  ${stockInfo[2]?.high ? stockInfo[2].high : "loading"}
+                  $
+                  {props.stockInfo[2]?.high
+                    ? props.stockInfo[2].high
+                    : "loading"}
                 </span>
                 <span className="header__grid-title">Low:</span>
                 <span className="header__grid-price">
-                  ${stockInfo[2]?.low ? stockInfo[2].low : "loading"}
+                  $
+                  {props.stockInfo[2]?.low ? props.stockInfo[2].low : "loading"}
                 </span>
               </div>
 
               <div className="header__flex-row">
                 <span className="header__grid-title">Open:</span>
                 <span className="header__grid-price">
-                  ${stockInfo[2]?.open ? stockInfo[2].open : "loading"}
+                  $
+                  {props.stockInfo[2]?.open
+                    ? props.stockInfo[2].open
+                    : "loading"}
                 </span>
                 <span className="header__grid-title">Close:</span>
                 <span className="header__grid-price">
-                  ${stockInfo[2]?.close ? stockInfo[2].close : "loading"}
+                  $
+                  {props.stockInfo[2]?.close
+                    ? props.stockInfo[2].close
+                    : "loading"}
                 </span>
               </div>
             </div>
@@ -306,11 +358,16 @@ function TopStocks(props) {
             <p className="header__stock-title">GOOGL</p>
             <p
               style={{
-                color: stockInfo[2]?.color ? stockInfo[2].color : "green",
+                color: props.stockInfo[2]?.color
+                  ? props.stockInfo[2].color
+                  : "green",
               }}
               className="header__stock-price"
             >
-              {stockInfo[2]?.percentage ? stockInfo[2].percentage : "loading"}%
+              {props.stockInfo[2]?.percentage
+                ? props.stockInfo[2].percentage
+                : "loading"}
+              %
             </p>
           </div>
 
@@ -318,9 +375,13 @@ function TopStocks(props) {
             <div
               data-attr="T"
               data-symbol="TSLA"
-              data-price={stockInfo[3]?.close ? stockInfo[3].close : "loading"}
+              data-price={
+                props.stockInfo[3]?.close ? props.stockInfo[3].close : "loading"
+              }
               data-percentage={
-                stockInfo[3]?.percentage ? stockInfo[3].percentage : "9.5"
+                props.stockInfo[3]?.percentage
+                  ? props.stockInfo[3].percentage
+                  : "9.5"
               }
               onClick={changeStock}
               className="header__stock-hover"
@@ -337,22 +398,32 @@ function TopStocks(props) {
               <div className="header__flex-row">
                 <span className="header__grid-title">High:</span>
                 <span className="header__grid-price">
-                  ${stockInfo[3]?.high ? stockInfo[3].high : "loading"}
+                  $
+                  {props.stockInfo[3]?.high
+                    ? props.stockInfo[3].high
+                    : "loading"}
                 </span>
                 <span className="header__grid-title">Low:</span>
                 <span className="header__grid-price">
-                  ${stockInfo[3]?.low ? stockInfo[3].low : "loading"}
+                  $
+                  {props.stockInfo[3]?.low ? props.stockInfo[3].low : "loading"}
                 </span>
               </div>
 
               <div className="header__flex-row">
                 <span className="header__grid-title">Open:</span>
                 <span className="header__grid-price">
-                  ${stockInfo[3]?.open ? stockInfo[3].open : "loading"}
+                  $
+                  {props.stockInfo[3]?.open
+                    ? props.stockInfo[3].open
+                    : "loading"}
                 </span>
                 <span className="header__grid-title">Close:</span>
                 <span className="header__grid-price">
-                  ${stockInfo[3]?.close ? stockInfo[3].close : "loading"}
+                  $
+                  {props.stockInfo[3]?.close
+                    ? props.stockInfo[3].close
+                    : "loading"}
                 </span>
               </div>
             </div>
@@ -363,11 +434,16 @@ function TopStocks(props) {
             <p className="header__stock-title">TSLA</p>
             <p
               style={{
-                color: stockInfo[3]?.color ? stockInfo[3].color : "green",
+                color: props.stockInfo[3]?.color
+                  ? props.stockInfo[3].color
+                  : "green",
               }}
               className="header__stock-price"
             >
-              {stockInfo[3]?.percentage ? stockInfo[3].percentage : "loading"}%
+              {props.stockInfo[3]?.percentage
+                ? props.stockInfo[3].percentage
+                : "loading"}
+              %
             </p>
           </div>
         </div>
@@ -399,12 +475,28 @@ const mapDispatchToProps = (dispatch) => {
         },
       });
     },
+
+    onSetStocks: () => {
+      dispatch({
+        type: "STOCKSSET",
+        value: true,
+      });
+    },
+
+    onStockInfo: (temp) => {
+      dispatch({
+        type: "SETSTOCKINFO",
+        value: temp,
+      });
+    },
   };
 };
 
 const mapStateToProps = (state) => {
   return {
     selectedStock: state.selectedStock,
+    setStocks: state.stocksSet,
+    stockInfo: state.stockInfo,
   };
 };
 
