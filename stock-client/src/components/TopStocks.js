@@ -9,10 +9,23 @@ function TopStocks(props) {
   const [stockInfo, setStockInfo] = useState([]);
 
   const symbols = ["AAPL", "NFLX", "GOOGL", "TSLA"];
+  let temp = [];
 
   useEffect(() => {
-    fetchSymbols();
+    if (!stockInfo.length) {
+      fetchSymbols();
+    }
   }, []);
+  // Run after fetchSymbols finishes:
+  useEffect(() => {
+    if (stockInfo.length) {
+      props.onInitialSet(
+        stockInfo[2].symbol,
+        stockInfo[2].percentage,
+        stockInfo[2].close
+      );
+    }
+  }, [stockInfo]);
 
   const changeStock = (e) => {
     setPrevStock(props.selectedStock);
@@ -38,11 +51,16 @@ function TopStocks(props) {
             let high = parseFloat(x[1]).toFixed(2);
             let low = parseFloat(x[2]).toFixed(2);
             let close = parseFloat(x[3]).toFixed(2);
+            let colorToSend;
 
             let percentage = close - open;
+            if (percentage < 0) {
+              colorToSend = "red";
+            } else {
+              colorToSend = "rgb(30, 216, 139)";
+            }
             let result = parseFloat(percentage).toFixed(2);
 
-            let temp = [...stockInfo];
             temp.push({
               symbol: symbol,
               high: high,
@@ -50,14 +68,15 @@ function TopStocks(props) {
               close: close,
               open: open,
               percentage: result,
+              color: colorToSend,
             });
-
-            setStockInfo(temp);
           } catch {
             console.log("surpassed the limit of 4 requests in under a minute");
           }
         });
     }
+
+    setStockInfo(temp);
   }
 
   const showPopupFunc = (e) => {
@@ -127,8 +146,11 @@ function TopStocks(props) {
           <div className="header__stock">
             <div
               data-attr="A"
+              data-percentage={
+                stockInfo[0]?.percentage ? stockInfo[0].percentage : "9.5"
+              }
               data-symbol="AAPL"
-              data-price="467.26"
+              data-price={stockInfo[0]?.close ? stockInfo[0].close : "loading"}
               onClick={changeStock}
               className="header__stock-hover"
             ></div>
@@ -168,7 +190,12 @@ function TopStocks(props) {
               <span className="header__icon-1-symbol">A</span>
             </div>
             <p className="header__stock-title">AAPL</p>
-            <p className="header__stock-price">
+            <p
+              style={{
+                color: stockInfo[0]?.color ? stockInfo[0].color : "green",
+              }}
+              className="header__stock-price"
+            >
               {stockInfo[0]?.percentage ? stockInfo[0].percentage : "loading"}%
             </p>
           </div>
@@ -177,8 +204,11 @@ function TopStocks(props) {
           <div data-name="netflix" className="header__stock">
             <div
               data-attr="N"
+              data-percentage={
+                stockInfo[1]?.percentage ? stockInfo[1].percentage : "9.5"
+              }
               data-symbol="NFLX"
-              data-price="467.26"
+              data-price={stockInfo[1]?.close ? stockInfo[1].close : "loading"}
               onClick={changeStock}
               className="header__stock-hover"
             ></div>
@@ -215,7 +245,12 @@ function TopStocks(props) {
               <span className="header__icon-2-symbol">N</span>
             </div>
             <p className="header__stock-title">NFLX</p>
-            <p className="header__stock-price">
+            <p
+              style={{
+                color: stockInfo[1]?.color ? stockInfo[1].color : "green",
+              }}
+              className="header__stock-price"
+            >
               {stockInfo[1]?.percentage ? stockInfo[1].percentage : "loading"}%
             </p>
           </div>
@@ -226,7 +261,10 @@ function TopStocks(props) {
             <div
               data-attr="G"
               data-symbol="GOOGL"
-              data-price="467.26"
+              data-price={stockInfo[2]?.close ? stockInfo[2].close : "loading"}
+              data-percentage={
+                stockInfo[2]?.percentage ? stockInfo[2].percentage : "9.5"
+              }
               onClick={changeStock}
               className="header__stock-hover"
             ></div>
@@ -266,7 +304,12 @@ function TopStocks(props) {
               <span className="header__icon-3-symbol">G</span>
             </div>
             <p className="header__stock-title">GOOGL</p>
-            <p className="header__stock-price">
+            <p
+              style={{
+                color: stockInfo[2]?.color ? stockInfo[2].color : "green",
+              }}
+              className="header__stock-price"
+            >
               {stockInfo[2]?.percentage ? stockInfo[2].percentage : "loading"}%
             </p>
           </div>
@@ -275,7 +318,10 @@ function TopStocks(props) {
             <div
               data-attr="T"
               data-symbol="TSLA"
-              data-price="467.26"
+              data-price={stockInfo[3]?.close ? stockInfo[3].close : "loading"}
+              data-percentage={
+                stockInfo[3]?.percentage ? stockInfo[3].percentage : "9.5"
+              }
               onClick={changeStock}
               className="header__stock-hover"
             ></div>
@@ -315,7 +361,12 @@ function TopStocks(props) {
               <span className="header__icon-4-symbol">T</span>
             </div>
             <p className="header__stock-title">TSLA</p>
-            <p className="header__stock-price">
+            <p
+              style={{
+                color: stockInfo[3]?.color ? stockInfo[3].color : "green",
+              }}
+              className="header__stock-price"
+            >
               {stockInfo[3]?.percentage ? stockInfo[3].percentage : "loading"}%
             </p>
           </div>
@@ -334,12 +385,20 @@ const mapDispatchToProps = (dispatch) => {
           name: e.target.dataset.symbol,
           price: e.target.dataset.price,
           symbol: e.target.dataset.attr,
-          open: "$" + "122.45",
-          close: "$" + "134.56",
-          high: "$" + "188.94",
-          low: "$" + "111.23",
+          percentage: e.target.dataset.percentage,
         },
       }),
+
+    onInitialSet: (symbol, percentage, price) => {
+      dispatch({
+        type: "INITIALSET",
+        value: {
+          price: price,
+          symbol: symbol,
+          percentage: percentage,
+        },
+      });
+    },
   };
 };
 

@@ -1,13 +1,5 @@
 const initialState = {
-  selectedStock: {
-    name: "GOOGL",
-    price: "1,999",
-    symbol: "G",
-    open: "$" + "122.45",
-    close: "$" + "134.56",
-    high: "$" + "188.94",
-    low: "$" + "111.23",
-  },
+  selectedStock: {},
 
   authenticated: false,
 
@@ -34,6 +26,11 @@ const reducer = (state = initialState, action) => {
     return {
       ...state,
       userId: action.value,
+    };
+  } else if (action.type == "INITIALSET") {
+    return {
+      ...state,
+      selectedStock: action.value,
     };
   }
   return state;

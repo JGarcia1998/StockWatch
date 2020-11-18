@@ -102,10 +102,22 @@ function Container(props) {
 
         <div className="main-right">
           <div className="main-right__stock">
-            <div className="main-right__logo">{props.selectedStock.symbol}</div>
-            <h2 className="main-right__name">{props.selectedStock.name}</h2>
+            <div className="main-right__logo">
+              {props.selectedStock.symbol.split("")[0]}
+            </div>
+            <h2 className="main-right__name">{props.selectedStock.symbol}</h2>
             <p className="main-right__price">${props.selectedStock.price}</p>
-            <p className="main-right__percentage">+2.2% (5.76)</p>
+            <p
+              style={{
+                color:
+                  props.selectedStock.percentage < 0
+                    ? "red"
+                    : "rgb(30, 216, 139)",
+              }}
+              className="main-right__percentage"
+            >
+              {props.selectedStock.percentage}
+            </p>
             <svg
               className="main-right-chart"
               xmlns="http://www.w3.org/2000/svg"
