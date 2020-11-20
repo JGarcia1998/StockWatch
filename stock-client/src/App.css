@@ -441,16 +441,21 @@ body {
     margin-right: 1rem;
     position: relative;
     padding: 1rem;
+    transition: 0.3s;
     cursor: pointer; }
   .header__stock-hover {
     background-color: transparent;
+    border-radius: 5px;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 20;
-    clip-path: polygon(29% 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0 34%); }
+    clip-path: polygon(29% 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0 34%);
+    transition: all 0.3s; }
+  .header__stock-hover:hover {
+    background-color: rgba(0, 153, 255, 0.2); }
   .header__news-title {
     font-size: 2.3rem;
     color: black;

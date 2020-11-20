@@ -50,7 +50,9 @@ function Container(props) {
         },
         body: JSON.stringify({
           userid: props.currId,
-          symbol: props.selectedStock.name,
+          symbol: props.selectedStock.name
+            ? props.selectedStock.name
+            : props.selectedStock.symbol,
         }),
       })
         .then((res) => res.json())
