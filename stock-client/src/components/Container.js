@@ -81,6 +81,7 @@ function Container(props) {
         <Navbar></Navbar>
 
         <div className="header">
+          <button onClick={watchlistDB} className="btn-fixed-phone"></button>
           <h2 className="header__title">Top Stocks</h2>
           <p className="header__p">
             Latest prices and news related to each currency

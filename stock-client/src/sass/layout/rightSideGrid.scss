@@ -4,11 +4,21 @@
   display: flex;
   flex-direction: column;
   padding: 0 3rem;
+  grid-area: right;
+
+  @include respond(phone) {
+    height: inherit;
+  }
   &__info {
     margin-top: auto;
 
     width: 100%;
     height: 40%;
+
+    @include respond(phone) {
+      width: 80%;
+      height: 30%;
+    }
 
     &-name {
       margin-bottom: 1rem;
@@ -27,6 +37,10 @@
     bottom: 0;
     left: 0;
     height: 60%;
+
+    @include respond(phone) {
+      height: 70%;
+    }
   }
 
   &__logo {
@@ -67,6 +81,11 @@
       height: 40%;
       top: 1rem;
       right: 2rem;
+    }
+    @include respond(phone) {
+      top: 0;
+      right: 0;
+      height: 60%;
     }
   }
 
