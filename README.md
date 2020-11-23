@@ -25,7 +25,6 @@ Here is the crypto currnecy tab, similar to the main stock dashboard, users can 
 This application can only be ran through localhost, online deployment is not allowed. 
 
 - Clone this repository.
-- Run npm install in the root directory.
-- cd into stock-client and run "npm start" to start the client side.
-- in a seperate directory, cd into stock-server and run "node app.js" to start the server.
+- cd into stock-client and run "npm install", then "npm start" to start the client side.
+- in a seperate directory, cd into stock-server and run "npm install", then "node app.js" to start the server.
 
