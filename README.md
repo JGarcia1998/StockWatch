@@ -11,4 +11,7 @@ Here is the users watchlist, symbols are stored in a PostgreSQL database and new
 
 <img width="1223" alt="Screen Shot 2020-11-22 at 7 53 53 PM" src="https://user-images.githubusercontent.com/62822850/99923867-563b3180-2cfd-11eb-882a-b2de3cc17366.png">
 
+# News articles
+The main content of the page is available through the middle section on y-scroll, down below the top 4 stocks are recent news articles around the globe to stay up to date on any recent news.
+
 <img width="1155" alt="Screen Shot 2020-11-22 at 7 57 43 PM" src="https://user-images.githubusercontent.com/62822850/99923879-66531100-2cfd-11eb-91d7-1f3f4de71c00.png">
