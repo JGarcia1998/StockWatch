@@ -15,3 +15,9 @@ Here is the users watchlist, symbols are stored in a PostgreSQL database and new
 The main content of the page is available through the middle section on y-scroll, down below the top 4 stocks are recent news articles around the globe to stay up to date on any recent news.
 
 <img width="1155" alt="Screen Shot 2020-11-22 at 7 57 43 PM" src="https://user-images.githubusercontent.com/62822850/99923879-66531100-2cfd-11eb-91d7-1f3f4de71c00.png">
+
+# Crypto currencies
+Here is the crypto currnecy tab, similar to the main stock dashboard, users can view the top 4 recent crypto currency prices along with news articles related to them as well. 
+
+<img width="1195" alt="Screen Shot 2020-11-22 at 8 10 58 PM" src="https://user-images.githubusercontent.com/62822850/99924204-e037ca00-2cfe-11eb-8e80-8ab1726da37c.png">
+
