@@ -1,12 +1,14 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const fetch = require("node-fetch");
 const bodyParser = require("body-parser");
 const db = require("./models");
 const bcrypt = require("bcryptjs");
 app.use(cors());
 app.use(bodyParser());
 require("dotenv").config();
+const port = process.env.PORT || 1234;
 
 const { Sequelize } = require("sequelize");
 
@@ -123,6 +125,6 @@ app.post("/login", (req, res) => {
   });
 });
 
-app.listen(1234, (req, res) => {
+app.listen(port, (req, res) => {
   console.log("server up...");
 });

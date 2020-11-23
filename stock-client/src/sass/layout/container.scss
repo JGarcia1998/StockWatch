@@ -7,11 +7,23 @@
   left: 50%;
   transform: translate(-50%, -50%);
   display: grid;
+  grid-template-areas: "nav header right";
   grid-template-columns: 1fr 2fr 1fr;
 
   @include respond(tab-port) {
     width: 100vw;
     height: 100vh;
+  }
+  @include respond(phone) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "nav"
+      "right"
+      "header";
+    position: relative;
+    transform: none;
+    top: 0;
+    left: 0;
   }
 }
 
@@ -25,6 +37,11 @@
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+  grid-area: header;
+
+  @include respond(phone) {
+    overflow: inherit;
+  }
 
   &__stock-news-grid {
     display: grid;
@@ -35,6 +52,9 @@
 
     @include respond(tab-land) {
       grid-template-columns: 1fr;
+    }
+    @include respond(phone) {
+      grid-gap: 2rem;
     }
 
     &-title {
@@ -239,6 +259,47 @@
   box-shadow: 1rem 1rem 2rem rgba(black, 0.3);
   cursor: pointer;
   outline: none;
+
+  @include respond(phone) {
+    display: none;
+  }
+}
+
+.btn-fixed-phone {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: rgb(49, 115, 212);
+
+  border-radius: 15px;
+  transform: rotate(45deg);
+  border: none;
+
+  width: 6rem;
+  height: 6rem;
+  z-index: 100;
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  box-shadow: 1rem 1rem 2rem rgba(black, 0.2);
+  cursor: pointer;
+  outline: none;
+  display: none;
+
+  @include respond(phone) {
+    display: block;
+  }
+}
+
+.btn-fixed-phone::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  font-size: 4rem;
+  font-weight: 300;
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 .btn-fixed::after {

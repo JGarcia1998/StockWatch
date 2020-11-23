@@ -48,6 +48,11 @@
     outline: none;
     overflow-y: scroll;
     padding: 3rem;
+
+    @include respond(phone) {
+      width: 100vw;
+      height: 100vh;
+    }
   }
 
   &-close {
@@ -115,6 +120,10 @@
   animation: slide-in 1.3s;
   animation-delay: 0.5;
   box-shadow: 0 1rem 1rem rgba(black, 0.2);
+
+  @include respond(phone) {
+    width: 90%;
+  }
 
   &__img {
     width: 40%;

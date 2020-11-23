@@ -95,7 +95,6 @@ function Reusable(props) {
     setShowPopup(false);
     setStockUpdate([]);
   };
-  const classes = useStyles();
 
   return (
     <>
